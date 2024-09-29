@@ -1,0 +1,440 @@
+└── youtube-embed-project
+    ├── public
+    ├── src
+    │   ├── components
+    │   │   ├── Header.jsx
+    │   │   ├── LoginButton.jsx
+    │   │   └── YouTubeEmbed.jsx
+    │   ├── config.js
+    │   ├── main.jsx
+    │   └── App.jsx
+    ├── index.html
+    ├── vite.config.js
+    ├── README.md
+    ├── .gitignore
+    └── package.json
+
+
+./index.html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sum1 Solutions</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Orbitron:wght@400;700&family=Roboto+Mono&family=Share+Tech+Mono&family=Chakra+Petch&family=Teko&family=Exo+2&family=Russo+One&family=Rajdhani&family=Comfortaa&family=Audiowide&family=Montserrat&family=Raleway&family=Oswald&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
+
+
+./vite.config.js
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+
+// https://vitejs.dev/config/
+export default defineConfig({
+  plugins: [react()],
+})
+
+
+./README.md
+# YouTube Embed React Project
+
+This project is a simple React application that embeds a YouTube video and includes authentication using Auth0. It's built with Vite for fast development and optimized production builds.
+
+## Project Structure
+
+```
+youtube-embed-project/
+├── src/
+│   ├── components/
+│   │   ├── Header.jsx
+│   │   ├── LoginButton.jsx
+│   │   └── YouTubeEmbed.jsx
+│   ├── App.jsx
+│   └── main.jsx
+├── index.html
+├── vite.config.js
+├── package.json
+└── .gitignore
+```
+
+## Setup
+
+1. Clone the repository:
+   ```
+   git clone <your-repo-url>
+   cd youtube-embed-project
+   ```
+
+2. Install dependencies:
+   ```
+   npm install
+   ```
+
+3. Update Auth0 configuration:
+   Open `src/App.jsx` and replace `YOUR_AUTH0_DOMAIN` and `YOUR_AUTH0_CLIENT_ID` with your actual Auth0 credentials.
+
+4. Start the development server:
+   ```
+   npm run dev
+   ```
+
+## Building for Production
+
+To create a production build:
+
+```
+npm run build
+```
+
+This will generate a `dist` folder with your compiled assets.
+
+## Deploying to Cloudflare Pages
+
+1. Push your code to a GitHub repository.
+
+2. Log in to your Cloudflare account and go to the Pages section.
+
+3. Click "Create a project" and select your GitHub repository.
+
+4. Configure your build settings:
+   - Build command: `npm run build`
+   - Build output directory: `dist`
+
+5. Click "Save and Deploy"
+
+Cloudflare Pages will now automatically deploy your site whenever you push changes to your GitHub repository.
+
+## Customization
+
+- To change the embedded YouTube video, update the `videoUrl` in `src/components/YouTubeEmbed.jsx`.
+- To modify the header or add more pages, edit `src/components/Header.jsx` and update the routing in `src/App.jsx`.
+
+## Contributing
+
+Feel free to submit issues and pull requests for any improvements or bug fixes.
+
+## License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+
+./.gitignore
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+
+
+./package.json
+{
+  "name": "sum1-solutions-youtube-embed",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.10.6",
+    "@emotion/styled": "^11.10.6",
+    "@mui/icons-material": "^5.11.16",
+    "@mui/material": "^5.12.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.10.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.28",
+    "@types/react-dom": "^18.0.11",
+    "@vitejs/plugin-react": "^3.1.0",
+    "vite": "^4.2.0"
+  }
+}
+
+
+./src/config.js
+const config = {
+    youtubeVideoId: 'ySrkPGYgbHk',
+    aboutUrl: 'https://www.youtube.com/@sum1namedjon',
+    initialMode: 'light', // dark or light as initial mode.
+    // Add more configuration options as needed
+
+    // Title Font Options:
+    // Uncomment the desired font --the google api in index.html must include the family of fonts to work, which it does for the below
+
+    titleFont: "'Comfortaa', cursive",  // Current futuristic font
+    
+    // futuristic / tech font options:
+    // titleFont: "'Orbitron', sans-serif",
+    // titleFont: "'Roboto Mono', monospace",
+    // titleFont: "'Share Tech Mono', monospace",
+    // titleFont: "'Chakra Petch', sans-serif",
+    // titleFont: "'Teko', sans-serif",
+    // titleFont: "'Exo 2', sans-serif",
+    // titleFont: "'Russo One', sans-serif",
+    // titleFont: "'Rajdhani', sans-serif",
+    // titleFont: "'Comfortaa', cursive",
+    // titleFont: "'Audiowide', cursive",
+    
+    // Modern sans-serif options:
+    // titleFont: "'Montserrat', sans-serif",
+    // titleFont: "'Raleway', sans-serif",
+    // titleFont: "'Oswald', sans-serif",
+    
+    // System fonts (no import needed):
+    // titleFont: "Arial, sans-serif",
+    // titleFont: "'Helvetica Neue', Helvetica, sans-serif",
+    // titleFont: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
+    // titleFont: "'Courier New', Courier, monospace",
+  };
+  
+  export default config;
+
+
+./src/components/Header.jsx
+import React from 'react';
+import { Link as RouterLink, useNavigate } from 'react-router-dom';
+import { AppBar, Toolbar, Typography, Button, styled, IconButton } from '@mui/material';
+import Brightness4Icon from '@mui/icons-material/Brightness4';
+import Brightness7Icon from '@mui/icons-material/Brightness7';
+import config from '../config';
+
+const StyledToolbar = styled(Toolbar)(({ theme }) => ({
+  display: 'flex',
+  justifyContent: 'space-between',
+}));
+
+const Logo = styled(Typography)(({ theme }) => ({
+  fontWeight: 'bold',
+  color: 'var(--logo-color)',
+  textDecoration: 'none',
+  fontFamily: config.titleFont,  // Use the font from config
+  textTransform: 'uppercase',
+  letterSpacing: '2px',
+}));
+
+function Header({ mode, toggleMode }) {
+  const navigate = useNavigate();
+
+  const handleAboutClick = () => {
+    window.location.href = config.aboutUrl;
+  };
+
+  return (
+    <AppBar position="static" color="transparent" elevation={0}>
+      <StyledToolbar>
+        <Logo variant="h5" component={RouterLink} to="/">
+          Sum1 Solutions
+        </Logo>
+        <div style={{ display: 'flex', alignItems: 'center' }}>
+          <IconButton sx={{ mr: 1 }} onClick={toggleMode} color="inherit">
+            {mode === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
+          </IconButton>
+          <Button color="inherit" component={RouterLink} to="/">
+            Home
+          </Button>
+          <Button
+            color="inherit"
+            onClick={handleAboutClick}
+          >
+            About
+          </Button>
+        </div>
+      </StyledToolbar>
+    </AppBar>
+  );
+}
+
+export default Header;
+
+
+./src/components/LoginButton.jsx
+import React from 'react';
+import { useAuth0 } from '@auth0/auth0-react';
+
+function LoginButton() {
+  const { loginWithRedirect, logout, isAuthenticated, user } = useAuth0();
+
+  if (isAuthenticated) {
+    return (
+      <div>
+        <span>Welcome, {user.name}! </span>
+        <button onClick={() => logout({ returnTo: window.location.origin })}>
+          Log Out
+        </button>
+      </div>
+    );
+  }
+
+  return <button onClick={() => loginWithRedirect()}>Log In</button>;
+}
+
+export default LoginButton;
+
+
+
+./src/components/YouTubeEmbed.jsx
+import React from 'react';
+import { Box, Paper, Button, useTheme } from '@mui/material';
+import FullscreenIcon from '@mui/icons-material/Fullscreen';
+import config from '../config';
+
+function YouTubeEmbed() {
+  const theme = useTheme();
+  const videoUrl = `https://www.youtube.com/embed/${config.youtubeVideoId}?vq=hd1080`;
+
+  const openWide = () => {
+    // Navigate to the YouTube video URL in the same window
+    window.location.href = `https://www.youtube.com/watch?v=${config.youtubeVideoId}`;
+  };
+
+  return (
+    <Box
+      sx={{
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        height: 'calc(100vh - 64px)', // Subtract the AppBar height
+        p: 3,
+        backgroundColor: theme.palette.background.default,
+      }}
+    >
+      <Paper
+        elevation={6}
+        sx={{
+          width: '100%',
+          maxWidth: 800,
+          aspectRatio: '16 / 9',
+          overflow: 'hidden',
+          borderRadius: 2,
+          transition: 'transform 0.3s ease-in-out',
+          '&:hover': {
+            transform: 'scale(1.02)',
+          },
+        }}
+      >
+        <iframe
+          width="100%"
+          height="100%"
+          src={videoUrl}
+          title="YouTube Video Embed"
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+        ></iframe>
+      </Paper>
+      <Button
+        variant="contained"
+        color="primary"
+        startIcon={<FullscreenIcon />}
+        onClick={openWide}
+        sx={{ mt: 2 }}
+      >
+        Open Wide
+      </Button>
+    </Box>
+  );
+}
+
+export default YouTubeEmbed;
+
+
+./src/main.jsx
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import App from './App'
+
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+)
+
+
+./src/App.jsx
+import React, { useState, useMemo } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { ThemeProvider, createTheme, CssBaseline } from '@mui/material';
+import Header from './components/Header';
+import YouTubeEmbed from './components/YouTubeEmbed';
+
+function App() {
+  const [mode, setMode] = useState(config.initialMode); // Use the initial mode from config
+
+  const theme = useMemo(
+    () =>
+      createTheme({
+        palette: {
+          mode,
+          primary: {
+            main: '#ff4081',
+          },
+          background: {
+            default: mode === 'light' ? '#f5f5f5' : '#121212',
+            paper: mode === 'light' ? '#ffffff' : '#1e1e1e',
+          },
+        },
+        typography: {
+          fontFamily: "'Poppins', sans-serif",
+        },
+        components: {
+          MuiCssBaseline: {
+            styleOverrides: {
+              body: {
+                '--logo-color': mode === 'light' ? '#0077be' : '#00a8e8',
+              },
+            },
+          },
+        },
+      }),
+    [mode]
+  );
+
+  const toggleMode = () => {
+    setMode((prevMode) => (prevMode === 'light' ? 'dark' : 'light'));
+  };
+
+  return (
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <Router>
+        <Header mode={mode} toggleMode={toggleMode} />
+        <Routes>
+          <Route path="/" element={<YouTubeEmbed />} />
+        </Routes>
+      </Router>
+    </ThemeProvider>
+  );
+}
+
+export default App;

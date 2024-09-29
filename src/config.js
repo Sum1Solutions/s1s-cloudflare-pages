@@ -1,11 +1,13 @@
 const config = {
     youtubeVideoId: 'ySrkPGYgbHk',
     aboutUrl: 'https://www.youtube.com/@sum1namedjon',
-    
+    initialMode: 'light', // dark or light as initial mode.
+    // Add more configuration options as needed
+
     // Title Font Options:
-    // Uncomment the desired font and make sure to import it in index.html if it's a Google Font
-    
-    titleFont: "'Roboto Mono', monospace",  // Current futuristic font
+    // Uncomment the desired font --the google api in index.html must include the family of fonts to work, which it does for the below
+
+    titleFont: "'Comfortaa', cursive",  // Current futuristic font
     
     // futuristic / tech font options:
     // titleFont: "'Orbitron', sans-serif",

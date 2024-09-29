@@ -3,9 +3,10 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ThemeProvider, createTheme, CssBaseline } from '@mui/material';
 import Header from './components/Header';
 import YouTubeEmbed from './components/YouTubeEmbed';
+import config from './config'; // Add this import
 
 function App() {
-  const [mode, setMode] = useState('dark');
+  const [mode, setMode] = useState(config.initialMode); // Use the initial mode from config
 
   const theme = useMemo(
     () =>

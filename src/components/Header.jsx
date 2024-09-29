@@ -33,6 +33,9 @@ function Header({ mode, toggleMode }) {
           Sum1 Solutions
         </Logo>
         <div style={{ display: 'flex', alignItems: 'center' }}>
+          <IconButton sx={{ mr: 1 }} onClick={toggleMode} color="inherit">
+            {mode === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
+          </IconButton>
           <Button color="inherit" component={RouterLink} to="/">
             Home
           </Button>
@@ -42,9 +45,6 @@ function Header({ mode, toggleMode }) {
           >
             About
           </Button>
-          <IconButton sx={{ ml: 1 }} onClick={toggleMode} color="inherit">
-            {mode === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
-          </IconButton>
         </div>
       </StyledToolbar>
     </AppBar>
