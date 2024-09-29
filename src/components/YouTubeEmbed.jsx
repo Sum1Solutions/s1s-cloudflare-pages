@@ -1,15 +1,22 @@
 import React from 'react';
-import { Box, Paper, useTheme } from '@mui/material';
+import { Box, Paper, Button, useTheme } from '@mui/material';
+import FullscreenIcon from '@mui/icons-material/Fullscreen';
+import config from '../config';
 
 function YouTubeEmbed() {
   const theme = useTheme();
-  const videoUrl = 'https://www.youtube.com/embed/ySrkPGYgbHk';
+  const videoUrl = `https://www.youtube.com/embed/${config.youtubeVideoId}?vq=hd1080`;
+
+  const openWide = () => {
+    // Navigate to the YouTube video URL in the same window
+    window.location.href = `https://www.youtube.com/watch?v=${config.youtubeVideoId}`;
+  };
 
   return (
     <Box
       sx={{
         display: 'flex',
-        justifyContent: 'center',
+        flexDirection: 'column',
         alignItems: 'center',
         height: 'calc(100vh - 64px)', // Subtract the AppBar height
         p: 3,
@@ -40,6 +47,15 @@ function YouTubeEmbed() {
           allowFullScreen
         ></iframe>
       </Paper>
+      <Button
+        variant="contained"
+        color="primary"
+        startIcon={<FullscreenIcon />}
+        onClick={openWide}
+        sx={{ mt: 2 }}
+      >
+        Open Wide
+      </Button>
     </Box>
   );
 }

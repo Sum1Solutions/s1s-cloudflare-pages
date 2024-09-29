@@ -1,8 +1,9 @@
 import React from 'react';
-import { Link as RouterLink } from 'react-router-dom';
-import { AppBar, Toolbar, Typography, Button, styled, Switch, IconButton } from '@mui/material';
+import { Link as RouterLink, useNavigate } from 'react-router-dom';
+import { AppBar, Toolbar, Typography, Button, styled, IconButton } from '@mui/material';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
+import config from '../config';
 
 const StyledToolbar = styled(Toolbar)(({ theme }) => ({
   display: 'flex',
@@ -11,11 +12,20 @@ const StyledToolbar = styled(Toolbar)(({ theme }) => ({
 
 const Logo = styled(Typography)(({ theme }) => ({
   fontWeight: 'bold',
-  color: theme.palette.primary.main,
+  color: 'var(--logo-color)',
   textDecoration: 'none',
+  fontFamily: config.titleFont,  // Use the font from config
+  textTransform: 'uppercase',
+  letterSpacing: '2px',
 }));
 
 function Header({ mode, toggleMode }) {
+  const navigate = useNavigate();
+
+  const handleAboutClick = () => {
+    window.location.href = config.aboutUrl;
+  };
+
   return (
     <AppBar position="static" color="transparent" elevation={0}>
       <StyledToolbar>
@@ -28,9 +38,7 @@ function Header({ mode, toggleMode }) {
           </Button>
           <Button
             color="inherit"
-            href="https://www.youtube.com/@sum1namedjon"
-            target="_blank"
-            rel="noopener noreferrer"
+            onClick={handleAboutClick}
           >
             About
           </Button>

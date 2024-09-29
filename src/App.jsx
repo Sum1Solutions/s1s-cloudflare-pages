@@ -23,6 +23,15 @@ function App() {
         typography: {
           fontFamily: "'Poppins', sans-serif",
         },
+        components: {
+          MuiCssBaseline: {
+            styleOverrides: {
+              body: {
+                '--logo-color': mode === 'light' ? '#0077be' : '#00a8e8',
+              },
+            },
+          },
+        },
       }),
     [mode]
   );
