@@ -1,29 +1,22 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import { Auth0Provider } from '@auth0/auth0-react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import YouTubeEmbed from './components/YouTubeEmbed';
 
+console.log('App component is rendering');
+
 function App() {
   return (
-    <Auth0Provider
-      domain="YOUR_AUTH0_DOMAIN"
-      clientId="YOUR_AUTH0_CLIENT_ID"
-      redirectUri={window.location.origin}
-    >
-      <Router>
-        <div className="App">
-          <Header />
-          <main>
-            <Switch>
-              <Route path="/" exact>
-                <YouTubeEmbed />
-              </Route>
-            </Switch>
-          </main>
-        </div>
-      </Router>
-    </Auth0Provider>
+    <Router>
+      <div className="App">
+        <Header />
+        <main>
+          <Routes>
+            <Route path="/" element={<YouTubeEmbed />} />
+          </Routes>
+        </main>
+      </div>
+    </Router>
   );
 }
 
