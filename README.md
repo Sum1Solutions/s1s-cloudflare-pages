@@ -1,6 +1,6 @@
 # YouTube Embed React Project
 
-This project is a simple React application that embeds a YouTube video and includes authentication using Auth0. It's built with Vite for fast development and optimized production builds.
+This project is a simple React application that embeds a YouTube video. It's built with Vite for fast development and optimized production builds.
 
 ## Project Structure
 
@@ -9,10 +9,10 @@ youtube-embed-project/
 ├── src/
 │   ├── components/
 │   │   ├── Header.jsx
-│   │   ├── LoginButton.jsx
 │   │   └── YouTubeEmbed.jsx
 │   ├── App.jsx
-│   └── main.jsx
+│   ├── main.jsx
+│   └── config.js
 ├── index.html
 ├── vite.config.js
 ├── package.json
@@ -23,8 +23,8 @@ youtube-embed-project/
 
 1. Clone the repository:
    ```
-   git clone <your-repo-url>
-   cd youtube-embed-project
+   git clone https://github.com/Sum1Solutions/s1s-cloudflare-pages.git
+   cd s1s-cloudflare-pages
    ```
 
 2. Install dependencies:
@@ -32,10 +32,7 @@ youtube-embed-project/
    npm install
    ```
 
-3. Update Auth0 configuration:
-   Open `src/App.jsx` and replace `YOUR_AUTH0_DOMAIN` and `YOUR_AUTH0_CLIENT_ID` with your actual Auth0 credentials.
-
-4. Start the development server:
+3. Start the development server:
    ```
    npm run dev
    ```
@@ -68,8 +65,18 @@ Cloudflare Pages will now automatically deploy your site whenever you push chang
 
 ## Customization
 
-- To change the embedded YouTube video, update the `videoUrl` in `src/components/YouTubeEmbed.jsx`.
+- To change the embedded YouTube video, update the `youtubeVideoId` in `src/config.js`.
 - To modify the header or add more pages, edit `src/components/Header.jsx` and update the routing in `src/App.jsx`.
+
+## To-Do List
+
+- [ ] Add authentication (e.g., using Auth0)
+- [ ] Implement additional pages or features
+- [ ] Add more customization options in the config file
+- [ ] Improve responsive design for mobile devices
+- [ ] Implement error handling for YouTube embed
+- [ ] Add unit tests for components
+- [ ] Set up continuous integration/continuous deployment (CI/CD)
 
 ## Contributing
 
